@@ -7,15 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-bg': '#0a0e17',
-        'dark-card': '#121826',
-        'dark-border': '#1e293b',
-        'primary-blue': '#3b82f6',
-        'primary-purple': '#8b5cf6',
+        'dark-bg': 'var(--bg-primary)',
+        'dark-card': 'var(--bg-card)',
+        'dark-border': 'var(--border-color)',
+        'primary-blue': 'var(--accent-start)',
+        'primary-purple': 'var(--accent-end)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      }
+      },
+      animation: {
+        'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
   },
   plugins: [],

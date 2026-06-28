@@ -2,18 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define all theme variables */
+html[data-theme="dark"] {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f141f;
+  --bg-card: #111827;
+  --border-color: #1f2937;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+}
+
+html[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --bg-card: #ffffff;
+  --border-color: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+}
+
+html[data-theme="midnight"] {
+  --bg-primary: #05050a;
+  --bg-secondary: #0a0a15;
+  --bg-card: #0f0f1a;
+  --border-color: #1e1e2f;
+  --text-primary: #e0e7ff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+}
+
+html[data-accent="blue-purple"] {
+  --accent-start: #3b82f6;
+  --accent-end: #8b5cf6;
+}
+
+html[data-accent="green-teal"] {
+  --accent-start: #10b981;
+  --accent-end: #14b8a6;
+}
+
+html[data-accent="orange-red"] {
+  --accent-start: #f97316;
+  --accent-end: #ef4444;
+}
+
+html[data-accent="pink-purple"] {
+  --accent-start: #ec4899;
+  --accent-end: #8b5cf6;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a0e17;
-  color: #e2e8f0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   box-sizing: border-box;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
 }
