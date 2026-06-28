@@ -168,6 +168,33 @@ RideCast/
 - `GET /analytics` - Get analytics data for dashboard
 - API docs: http://localhost:8000/docs
 
+## Deployment
+
+### Frontend (Vercel)
+
+1. Push your code to a GitHub/GitLab/Bitbucket repository
+2. Go to [vercel.com](https://vercel.com) and sign in
+3. Click "New Project" and import your repository
+4. In the project settings:
+   - Add Environment Variable `VITE_OPENWEATHER_API_KEY` (your OpenWeatherMap key)
+   - Add Environment Variable `VITE_API_URL` (your Render backend URL, e.g., `https://your-render-app.onrender.com`)
+5. Click "Deploy"
+6. Your frontend will be live!
+
+### Backend (Render)
+
+1. Push your code to a GitHub/GitLab/Bitbucket repository
+2. Go to [render.com](https://render.com) and sign in
+3. Click "New" → "Web Service"
+4. Import your repository
+5. Configure the web service:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Root Directory**: `backend`
+6. Add Environment Variables if needed (e.g., `DATABASE_URL` for PostgreSQL)
+7. Click "Create Web Service"
+8. Your backend will be live!
+
 ## Notes
 
 - Backend uses Random Forest ML model trained on synthetic data
